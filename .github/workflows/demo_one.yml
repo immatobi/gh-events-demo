@@ -3,7 +3,14 @@ on:
   pull_request:
     types: 
       - opened
+    branches:
+      - staging
+      - 'staging-*' # for ex. staging-new
   workflow_dispatch:
+  push:
+    branches:
+      - staging
+      - 'staging-*' # for ex. staging-new
 jobs:
   deploy:
     runs-on: ubuntu-latest
