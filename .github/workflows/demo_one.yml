@@ -1,5 +1,9 @@
 name: Events Demo One
-on: ...
+on:
+  pull_request:
+    types: 
+      - opened
+  workflow_dispatch:
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -14,3 +18,7 @@ jobs:
         run: npm install --force
       - name: Run Unit Tests
         run: npm test
+      - name: Build Project
+        run: npm run build
+      - name: Deploy
+        run: echo "Deployed..."
